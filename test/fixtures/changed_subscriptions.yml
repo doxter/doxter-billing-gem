@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://test:geheimes%20Password@localhost:3000/api/v1/subscriptions.json?sync_token=1:MjAxNS0wMy0wOVQxNDo1MjoxNSswMTowMA==
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '351'
+      Etag:
+      - '"ecf8efdd4e8520461151049e13754d14"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 6c275eec-0dbd-4143-9bad-d885adabed19
+      X-Runtime:
+      - '0.205552'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.2.0/2014-12-25)
+      Date:
+      - Mon, 09 Mar 2015 13:58:27 GMT
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '{"nextSyncToken":"1:MjAxNS0wMy0wOVQxNDo1ODoyNyswMTowMA==","data":[{"abo_id":8415,"datev":12930,"article_code":"standard","pricing":"doxter-gkv=6;doxter-pkv=30","leads":false,"status":"active","event":"updated"},{"abo_id":8459,"datev":12979,"article_code":"standard","pricing":"doxter-neupatient=25","leads":false,"status":"active","event":"updated"}]}'
+    http_version: 
+  recorded_at: Mon, 09 Mar 2015 13:58:27 GMT
+recorded_with: VCR 2.9.3
