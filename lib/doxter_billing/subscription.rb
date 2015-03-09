@@ -23,11 +23,9 @@ module DoxterBilling
     end
 
     def self.since(sync_token)
-      response = response = request('sync_token' => "#{sync_token}")
+      response = request('sync_token' => "#{sync_token}")
       convert_to_subscription(response)
     end
-
-    private
 
     def self.request(parameter = nil)
       conn = Faraday.new
