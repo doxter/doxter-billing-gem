@@ -5,8 +5,7 @@ module DoxterBilling
   class Subscription
     attr_accessor :id, :account_id, :article_code, :pricing, :leads, :status, :event
 
-    # API_URL = "http://billing.doxter.de/api/v1/subscriptions.json"
-    API_URL = 'http://localhost:3000/api/v1/subscriptions.json'
+    API_URL = "http://billing.doxter.de/api/v1/subscriptions.json"
 
     def initialize(attributes)
       @id = attributes['abo_id']
@@ -29,7 +28,7 @@ module DoxterBilling
 
     def self.request(parameter = nil)
       conn = Faraday.new
-      conn.basic_auth('test', 'geheimes Password')
+      conn.basic_auth(ENV['DOXTER_BILLING_API_USER'], ENV['DOXTER_BILLING_API_PASSWORD'])
       conn.params = parameter if parameter.is_a? Hash
       conn.get "#{API_URL}"
     end
