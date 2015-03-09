@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Gem to wrap billing.doxter.de API'
   spec.description   = 'Gem to wrap billing.doxter.de API'
-  spec.homepage      = 'TODO: https://github.com/doxter/'
+  spec.homepage      = 'https://github.com/doxter/doxter-billing-gem'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
