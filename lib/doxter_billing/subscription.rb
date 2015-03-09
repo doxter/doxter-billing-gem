@@ -5,31 +5,31 @@ module DoxterBilling
   class Subscription
     attr_accessor :id, :account_id, :article_code, :pricing, :leads, :status, :event
 
-    #API_URL = "http://billing.doxter.de/api/v1/subscriptions.json"
-    API_URL = "http://localhost:3000/api/v1/subscriptions.json"
+    # API_URL = "http://billing.doxter.de/api/v1/subscriptions.json"
+    API_URL = 'http://localhost:3000/api/v1/subscriptions.json'
 
     def initialize(attributes)
-      @id = attributes["abo_id"]
-      @account_id = attributes["datev"]
-      @article_code = attributes["article_code"]
-      @pricing = attributes["pricing"]
-      @leads = attributes["leads"]
-      @status = attributes["status"]
-      @event = attributes["event"]
+      @id = attributes['abo_id']
+      @account_id = attributes['datev']
+      @article_code = attributes['article_code']
+      @pricing = attributes['pricing']
+      @leads = attributes['leads']
+      @status = attributes['status']
+      @event = attributes['event']
     end
 
     def self.all
-      self.convert_to_subscription(self.request)
+      convert_to_subscription(request)
     end
 
     def self.since(sync_token)
-      response = response = self.request('sync_token' => "#{sync_token}")
+      response = response = request('sync_token' => "#{sync_token}")
       convert_to_subscription(response)
     end
 
     private
 
-    def self.request(parameter=nil)
+    def self.request(parameter = nil)
       conn = Faraday.new
       conn.basic_auth('test', 'geheimes Password')
       conn.params = parameter if parameter.is_a? Hash

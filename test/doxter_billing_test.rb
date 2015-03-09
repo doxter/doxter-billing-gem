@@ -17,8 +17,8 @@ class DoxterBillingTest < Minitest::Test
       assert_equal 709, result.length
 
       # Make sure that the JSON was parsed
-      assert result.kind_of?(Array)
-      assert result.first.kind_of?(DoxterBilling::Subscription)
+      assert result.is_a?(Array)
+      assert result.first.is_a?(DoxterBilling::Subscription)
     end
   end
 
@@ -30,19 +30,19 @@ class DoxterBillingTest < Minitest::Test
       assert_equal 2, result.length
 
       # Make sure that the JSON was parsed
-      assert result.kind_of?(Array)
+      assert result.is_a?(Array)
 
       subscription = result.first
-      assert subscription.kind_of?(DoxterBilling::Subscription)
+      assert subscription.is_a?(DoxterBilling::Subscription)
 
       # Check that the fields are accessible by our model
       assert_equal 8415, subscription.id
-      assert_equal 12930, subscription.account_id
-      assert_equal "standard", subscription.article_code
-      assert_equal "doxter-gkv=6;doxter-pkv=30", subscription.pricing
+      assert_equal 12_930, subscription.account_id
+      assert_equal 'standard', subscription.article_code
+      assert_equal 'doxter-gkv=6;doxter-pkv=30', subscription.pricing
       assert_equal false, subscription.leads
-      assert_equal "active", subscription.status
-      assert_equal "updated", subscription.event
+      assert_equal 'active', subscription.status
+      assert_equal 'updated', subscription.event
     end
   end
 end
