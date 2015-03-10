@@ -45,4 +45,13 @@ class DoxterBillingTest < Minitest::Test
       assert_equal 'updated', subscription.event
     end
   end
+
+  def test_sync_token
+    VCR.use_cassette('changed_subscriptions') do
+      result = DoxterBilling::Subscription.since('1:MjAxNS0wMy0wOVQxNDo1MjoxNSswMTowMA==')
+
+      # Make sure we got all the cars
+      assert_equal "1:MjAxNS0wMy0wOVQxNDo1ODoyNyswMTowMA==", DoxterBilling::Subscription.next_sync_token
+    end
+  end
 end

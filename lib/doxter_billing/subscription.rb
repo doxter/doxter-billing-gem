@@ -33,8 +33,13 @@ module DoxterBilling
       conn.get "#{API_URL}"
     end
 
+    def self.next_sync_token
+      @next_sync_token
+    end
+
     def self.convert_to_subscription(web_response)
       api_response = JSON.parse(web_response.body)
+      @next_sync_token = api_response['nextSyncToken']
       subscriptions = api_response['data']
       subscriptions.map { |attributes| new(attributes) }
     end
