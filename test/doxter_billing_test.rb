@@ -25,14 +25,8 @@ class DoxterBillingTest < Minitest::Test
   def test_the_get_function
     VCR.use_cassette('get_one_subscription') do
       result = DoxterBilling::Subscription.get 14303
-
-      # Make sure we got all the cars
-      assert_equal 1, result.length
-
-      # Make sure that the JSON was parsed
-      assert result.is_a?(Array)
-      assert result.first.is_a?(DoxterBilling::Subscription)
-      assert result.first.id == 14303
+      assert result.is_a?(DoxterBilling::Subscription)
+      assert result.id == 14303
     end
   end
 

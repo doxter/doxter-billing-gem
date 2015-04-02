@@ -24,7 +24,7 @@ module DoxterBilling
 
     def self.get(abo_id)
       response = request('get' => "#{abo_id}")
-      convert_to_subscription(response)
+      convert_to_subscription(response).first
     end
 
     def self.since(sync_token)
