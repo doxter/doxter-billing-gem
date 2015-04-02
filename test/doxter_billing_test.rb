@@ -22,6 +22,14 @@ class DoxterBillingTest < Minitest::Test
     end
   end
 
+  def test_the_get_function
+    VCR.use_cassette('get_one_subscription') do
+      result = DoxterBilling::Subscription.get 14303
+      assert result.is_a?(DoxterBilling::Subscription)
+      assert result.id == 14303
+    end
+  end
+
   def test_it_gives_back_changed_subscriptions
     VCR.use_cassette('changed_subscriptions') do
       result = DoxterBilling::Subscription.since('1:MjAxNS0wMy0wOVQxNDo1MjoxNSswMTowMA==')
