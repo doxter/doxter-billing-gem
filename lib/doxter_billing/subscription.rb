@@ -6,6 +6,7 @@ module DoxterBilling
     attr_accessor :id, :account_id, :article_code, :pricing, :leads, :status, :event
 
     API_URL = "http://billing.doxter.de/api/v1/subscriptions.json"
+    #API_URL = "http://localhost:3000/api/v1/subscriptions.json"
 
     def initialize(attributes)
       @id = attributes['abo_id']
@@ -19,6 +20,11 @@ module DoxterBilling
 
     def self.all
       convert_to_subscription(request)
+    end
+
+    def self.get(abo_id)
+      response = request('get' => "#{abo_id}")
+      convert_to_subscription(response)
     end
 
     def self.since(sync_token)
