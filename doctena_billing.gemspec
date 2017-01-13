@@ -1,21 +1,21 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'doxter_billing/version'
+require 'doctena_billing/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'doxter_billing'
-  spec.version       = DoxterBilling::VERSION
+  spec.name          = 'doctena_billing'
+  spec.version       = DoctenaBilling::VERSION
   spec.authors       = ['Andre Rauschenbach']
-  spec.email         = ['a.rauschenbach@doxter.de']
+  spec.email         = ['andre.rauschenbach@doctena.com']
 
   if spec.respond_to?(:metadata)
     spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
   end
 
-  spec.summary       = 'Gem to wrap billing.doxter.de API'
-  spec.description   = 'Gem to wrap billing.doxter.de API'
-  spec.homepage      = 'https://github.com/doxter/doxter-billing-gem'
+  spec.summary       = 'Gem to wrap billing.doctena.de API'
+  spec.description   = 'Gem to wrap billing.doctena.de API'
+  spec.homepage      = 'https://github.com/doxter/doctena-billing-gem'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
